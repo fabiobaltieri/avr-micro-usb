@@ -8,16 +8,17 @@
 # This Revision: $Id: Makefile 301 2007-03-29 17:07:53Z cs $
 
 SERIAL = `echo /dev/tty.KeySerial*`
-AVRDUDE = avrdude -cavrispmkii -Pusb
+AVRDUDE = avrdude -cusbasp -Pusb
 # The two lines above are for "uisp" and the AVR910 serial programmer connected
 # to a Keyspan USB to serial converter to a Mac running Mac OS X.
 # Choose your favorite programmer and interface.
 
-MCU=atmega168
-HFUSE=0xdf
-LFUSE=0xef
+MCU=attiny25
+F_CPU=16500000
+HFUSE=0xdd
+LFUSE=0xe1
 
-COMPILE = avr-gcc -Wall -Os -Iusbdrv -I. -mmcu=$(MCU) #-DDEBUG_LEVEL=1
+COMPILE = avr-gcc -Wall -Os -Iusbdrv -I. -DF_CPU=$(F_CPU) -mmcu=$(MCU) #-DDEBUG_LEVEL=1
 
 OBJECTS = usbdrv/usbdrv.o usbdrv/usbdrvasm.o usbdrv/oddebug.o main.o
 
