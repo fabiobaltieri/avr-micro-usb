@@ -24,18 +24,14 @@ static void hardwareInit(void)
 {
   uchar	i, j;
 
-  PORTB = 0xff;   /* activate all pull-ups */
+  PORTB = 0x08;   /* activate all pull-ups */
   DDRB = 0;       /* all pins input */
-  PORTC = 0xff;   /* activate all pull-ups */
-  DDRC = 0;       /* all pins input */
-  PORTD = 0xfa;   /* 1111 1010 bin: activate pull-ups except on USB lines */
-  DDRD = 0x07;    /* 0000 0111 bin: all pins input except USB (-> USB reset) */
   j = 0;
   while(--j){     /* USB Reset by device only required on Watchdog Reset */
     i = 0;
     while(--i); /* delay >10ms for USB reset */
   }
-  DDRD = 0x02;    /* 0000 0010 bin: remove USB reset condition */
+  DDRB = 0x08;    /* 0000 0010 bin: remove USB reset condition */
   /* configure timer 0 for a rate of 12M/(1024 * 256) = 45.78 Hz (~22ms) */
   TCCR0A = 5;      /* timer 0 prescaler: 1024 */
 }
