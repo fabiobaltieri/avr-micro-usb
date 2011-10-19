@@ -68,9 +68,9 @@ PROGMEM char usbHidReportDescriptor[USB_CFG_HID_REPORT_DESCRIPTOR_LENGTH] = { /*
 
   0x95, 0x06,                    //   REPORT_COUNT (6)
   0x75, 0x08,                    //   REPORT_SIZE (8)
-  0x25, 0x65,                    //   LOGICAL_MAXIMUM (101)
+  0x25, 0xff,                    //   LOGICAL_MAXIMUM (101)
   0x19, 0x00,                    //   USAGE_MINIMUM (Reserved (no event indicated))
-  0x29, 0x65,                    //   USAGE_MAXIMUM (Keyboard Application)
+  0x29, 0xff,                    //   USAGE_MAXIMUM (Keyboard Application)
   0x81, 0x00,                    //   INPUT (Data,Ary,Abs)
 
   0xc0                           // END_COLLECTION
@@ -154,6 +154,8 @@ PROGMEM char usbHidReportDescriptor[USB_CFG_HID_REPORT_DESCRIPTOR_LENGTH] = { /*
 #define KEY_DOWN    81
 #define KEY_UP      82
 
+#define KEY_MENU    227
+
 static void report(uint8_t modifier, uint8_t key)
 {
   uint8_t i;
@@ -182,22 +184,9 @@ static uint16_t buildReport(void)
   memset(reportBuffer, 0, sizeof(reportBuffer));
   reportIndex = 2;
 
-  tmp = PINC;
-  if ((tmp & _BV(0)) == 0) report(0, KEY_5); /* PC0 SW5 */
-  if ((tmp & _BV(1)) == 0) report(0, KEY_3); /* PC1 SW3 */
-  if ((tmp & _BV(2)) == 0) report(0, KEY_2); /* PC2 SW2 */
-  if ((tmp & _BV(3)) == 0) report(0, KEY_1); /* PC3 SW1 */
-  if ((tmp & _BV(4)) == 0) report(0, KEY_4); /* PC4 SW4 */
-  if ((tmp & _BV(5)) == 0) report(0, KEY_RETURN); /* PC5 PUSH */
-  ret = tmp & 0x3f;
-
-  tmp = PIND;
-  if ((tmp & _BV(3)) == 0) report(0, KEY_A);  /* PD3 Wheel UP */
-  if ((tmp & _BV(4)) == 0) report(0, KEY_B);  /* PD4 Wheel DOWN */
-  if ((tmp & _BV(5)) == 0) report(0, KEY_6);  /* PD5 SW6 */
-  if ((tmp & _BV(6)) == 0) report(0, KEY_7); /* PD6 SW7 */
-  if ((tmp & _BV(7)) == 0) report(0, KEY_8); /* PD7 SW8 */
-  ret |= (tmp & 0xf8) << 8;
+  tmp = PINB;
+  if ((tmp & _BV(3)) == 0) report(0, KEY_MENU);
+  ret = tmp & 0x08;
 
   return ret;
 }
