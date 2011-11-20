@@ -1,11 +1,14 @@
-/* Name: main.c
- * Project: HID-Test
- * Author: Christian Starkjohann
- * Creation Date: 2006-02-02
- * Tabsize: 4
- * Copyright: (c) 2006 by OBJECTIVE DEVELOPMENT Software GmbH
- * License: GNU GPL v2 (see License.txt) or proprietary (CommercialLicense.txt)
- * This Revision: $Id: main.c 299 2007-03-29 17:07:19Z cs $
+/*
+ * Copyright 2011 Fabio Baltieri (fabio.baltieri@gmail.com)
+ *
+ * Based on the original V-USB code written by
+ *  Christian Starkjohann, Copyright 2006, OBJECTIVE DEVELOPMENT Software GmbH
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
  */
 
 #include <avr/io.h>

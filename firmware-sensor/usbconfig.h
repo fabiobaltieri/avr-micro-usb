@@ -1,11 +1,14 @@
-/* Name: usbconfig.h
- * Project: V-USB, virtual USB port for Atmel's(r) AVR(r) microcontrollers
- * Author: Christian Starkjohann
- * Creation Date: 2005-04-01
- * Tabsize: 4
- * Copyright: (c) 2005 by OBJECTIVE DEVELOPMENT Software GmbH
- * License: GNU GPL v2 (see License.txt), GNU GPL v3 or proprietary (CommercialLicense.txt)
- * This Revision: $Id: usbconfig-prototype.h 785 2010-05-30 17:57:07Z cs $
+/*
+ * Copyright 2011 Fabio Baltieri (fabio.baltieri@gmail.com)
+ *
+ * Based on the original V-USB code written by
+ *  Christian Starkjohann, Copyright 2005, OBJECTIVE DEVELOPMENT Software GmbH
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
  */
 
 #ifndef __usbconfig_h_included__

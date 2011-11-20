@@ -1,11 +1,14 @@
-/* Name: main.c
- * Project: custom-class, a basic USB example
- * Author: Christian Starkjohann
- * Creation Date: 2008-04-09
- * Tabsize: 4
- * Copyright: (c) 2008 by OBJECTIVE DEVELOPMENT Software GmbH
- * License: GNU GPL v2 (see License.txt), GNU GPL v3 or proprietary (CommercialLicense.txt)
- * This Revision: $Id: main.c 790 2010-05-30 21:00:26Z cs $
+/*
+ * Copyright 2011 Fabio Baltieri (fabio.baltieri@gmail.com)
+ *
+ * Based on the original V-USB code written by
+ *  Christian Starkjohann, Copyright 2008, OBJECTIVE DEVELOPMENT Software GmbH
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
  */
 
 #include <avr/io.h>
