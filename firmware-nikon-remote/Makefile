@@ -12,7 +12,7 @@ BOOTLOADER_FLAGS = -r main_text.hex
 
 # Options
 F_CPU = 16500000
-MCU = attiny85
+MCU = attiny25
 
 CFLAGS	= -Os -Wall -DF_CPU=$(F_CPU) -mmcu=$(MCU) -Iusbdrv -I.
 ASFLAGS	= -Os -Wall -DF_CPU=$(F_CPU) -mmcu=$(MCU) -Iusbdrv -I.
