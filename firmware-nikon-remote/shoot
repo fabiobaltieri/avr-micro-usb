@@ -1,0 +1,3 @@
+#!/bin/sh
+
+usbtool -P "Test Device" control out vendor device 0 0 0
