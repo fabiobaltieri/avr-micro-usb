@@ -49,6 +49,7 @@ usbMsgLen_t usbFunctionSetup(uint8_t data[8])
 		led_off();
 		_delay_us(20);
 	case CUSTOM_RQ_SHOOT_SILENT:
+	cli();
 		for (i = 0; i < 2; i++) {
 			pulse(2000);
 			space(27830);
@@ -60,6 +61,7 @@ usbMsgLen_t usbFunctionSetup(uint8_t data[8])
 
 			_delay_ms(63);
 		}
+	sei();
 		break;
 	case CUSTOM_RQ_IR_ON:
 		led_ir_on();
